@@ -169,6 +169,11 @@ button,
   }
 }
 
+//Contact
+textarea {
+    resize: none;
+}
+
 // Visibility
 .hide-for-mobile {
   @include breakpoint-down(medium) {
@@ -181,3 +186,5 @@ button,
     display: none;
   }
 }
+
+

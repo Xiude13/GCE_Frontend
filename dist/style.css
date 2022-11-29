@@ -239,6 +239,10 @@ button:hover::before,
   opacity: 1;
 }
 
+textarea {
+  resize: none;
+}
+
 @media (max-width: 63.9375em) {
   .hide-for-mobile {
     display: none;
@@ -280,7 +284,7 @@ button:hover::before,
   padding-bottom: 1.0625rem;
 }
 .header__logo img {
-  width: 12.8rem;
+  width: 14.8rem;
   height: 2.4rem;
 }
 .header__toggle > span {
@@ -338,83 +342,40 @@ button:hover::before,
   opacity: 1;
 }
 
-.hero {
-  background-color: hsl(0deg, 0%, 98%);
-}
-@media (min-width: 64em) {
-  .hero .container {
-    display: flex;
-    align-items: center;
-  }
-}
-.hero__image {
+.hero-image {
   position: relative;
-  background-image: url("/images/chelsea-unsplash.jpg");
+  height: 500px;
+  overflow: hidden;
+  background: url(/images/chelsea-unsplash.jpg);
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  min-height: 17.5rem;
+  background-position: center;
 }
-@media (min-width: 40em) {
-  .hero__image {
-    min-height: 25rem;
-    background-position: center 70%;
-  }
-}
-@media (min-width: 64em) {
-  .hero__image {
-    flex: 3;
-    order: 2;
-    height: 41rem;
-    background-image: none;
-  }
-}
-@media (min-width: 64em) {
-  .hero__image::before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    background-image: url("/images/chelsea-unsplash.jpg");
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    width: 150%;
-    background-size: 122%;
-    background-position: 0% 83%;
-  }
-}
-.hero__image::after {
-  content: "";
+
+.wrapper {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: url("/images/");
-  background-size: 93%;
-  background-repeat: no-repeat;
-  background-position: center bottom;
-}
-@media (min-width: 40em) {
-  .hero__image::after {
-    background-size: 52%;
-  }
-}
-@media (min-width: 64em) {
-  .hero__image::after {
-    width: 120%;
-    height: 122%;
-    background-size: 94%;
-    background-position: center 150%;
-    left: 22%;
-  }
-}
-.hero__text {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
   text-align: center;
+  border-radius: 0.3125rem;
+  background-color: rgba(0, 0, 0, 0.5);
 }
-@media (min-width: 64em) {
-  .hero__text {
-    flex: 2;
-    order: 1;
-    text-align: left;
-  }
+
+.wrapper h1 {
+  color: white;
+}
+
+.wrapper h1 span {
+  border: 10px solid;
+  padding: 6px 14px;
+  display: inline-block;
+}
+
+.des {
+  margin: 20px;
+  display: block;
+  color: white;
 }
 
 .feature {
@@ -732,4 +693,121 @@ button:hover::before,
     order: 1;
     text-align: left;
   }
+}
+
+.contact {
+  background-color: hsl(0deg, 0%, 98%);
+}
+.contact .contact-grid {
+  grid-template-columns: 1fr;
+}
+@media (min-width: 40em) {
+  .contact .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-areas: "details partners" "form accredidations" "map map";
+  }
+}
+@media (min-width: 64em) {
+  .contact .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 0.1fr);
+    grid-template-areas: "details partners accredidations" "form map map";
+    gap: 1.875rem;
+    justify-items: start;
+  }
+}
+.contact__text {
+  text-align: left;
+  padding-left: 1.5rem;
+}
+.contact__details {
+  grid-area: details;
+  text-align: center;
+  line-height: 2rem;
+}
+@media (min-width: 40em) {
+  .contact__details {
+    line-height: 2rem;
+  }
+}
+@media (min-width: 64em) {
+  .contact__details {
+    line-height: 2.6rem;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    margin-bottom: 1rem;
+    height: 10rem;
+  }
+}
+.contact__details .unstyled-list {
+  list-style: none;
+  color: hsl(233deg, 26%, 24%);
+}
+.contact__form {
+  grid-area: form;
+  text-align: center;
+  font-size: 0.998rem;
+  margin-top: 1rem;
+}
+@media (min-width: 40em) {
+  .contact__form {
+    font-size: 0.998rem;
+  }
+}
+@media (min-width: 64em) {
+  .contact__form {
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+    padding-left: 8.8rem;
+    margin-bottom: 1rem;
+  }
+}
+.contact__partners {
+  grid-area: partners;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+@media (min-width: 40em) {
+  .contact__partners {
+    margin-left: 5rem;
+  }
+}
+@media (min-width: 64em) {
+  .contact__partners {
+    height: 13.5rem;
+    width: 9.75rem;
+    padding-top: 1.6rem;
+    margin-left: 4rem;
+    margin-bottom: 1rem;
+  }
+}
+.contact__accredidations {
+  grid-area: accredidations;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+@media (min-width: 64em) {
+  .contact__accredidations {
+    justify-content: center;
+    height: 10.5rem;
+    width: 16rem;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+    padding-top: 1.6rem;
+  }
+}
+@media (min-width: 40em) {
+  .contact__accredidations {
+    margin-left: 3rem;
+  }
+}
+.contact__map {
+  grid-area: map;
 }/*# sourceMappingURL=style.css.map */
